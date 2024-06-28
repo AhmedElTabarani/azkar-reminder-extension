@@ -1,0 +1,221 @@
+* {
+  font-family: Vazirmatn RD;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  --main-color: #0070f3;
+  --main-disable-color: #868f9b;
+  --main-disable-color-dark: #676d75;
+  --main-color-tr: #0070ffa1;
+  --main-color-dark: #0050ac;
+  --ele-bg: #f6f8fa;
+  --ele-bg-dark: #e5e7eb;
+}
+
+@font-face {
+  font-family: Kitab;
+  src: url(https://fonts.nuqayah.com/kitab-base.woff2?v3);
+  unicode-range: U+200?, U+60C, U+618-61B, U+61F, U+621-63A, U+640-655,
+    U+65C, U+660-66C, U+670-671, U+6CC, U+6D4, U+6D6-6ED, U+8F0-8F3,
+    U+FD3E-FD3F;
+}
+
+@font-face {
+  font-family: Kitab;
+  src: url(https://fonts.nuqayah.com/kitab-base-b.woff2?v3);
+  font-weight: 700;
+  unicode-range: U+200?, U+60C, U+618-61B, U+61F, U+621-63A, U+640-655,
+    U+65C, U+660-66C, U+670-671, U+6CC, U+6D4, U+6D6-6ED, U+8F0-8F3,
+    U+FD3E-FD3F;
+}
+
+@font-face {
+  font-family: Kitab;
+  src: url(https://fonts.nuqayah.com/kitab-phrases.woff2?v3);
+  unicode-range: U+E100-E103, U+FD3E-FD45, U+FD47-FD4F, U+FDF2,
+    U+FDFA-FDFB, U+FDFD-FDFF;
+}
+
+@font-face {
+  font-family: Kitab;
+  src: url(https://fonts.nuqayah.com/kitab-phrases.woff2?v3);
+  font-weight: 700;
+  unicode-range: U+E100-E103, U+FD3E-FD45, U+FD47-FD4F, U+FDF2,
+    U+FDFA-FDFB, U+FDFD-FDFF;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Neo Sans Arabic', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-color-dark);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--ele-bg);
+  border-bottom: 1px solid var(--ele-bg-dark);
+  padding: 15px;
+  width: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  width: 700px;
+  height: 500px;
+}
+
+h1 {
+  color: var(--main-color);
+}
+
+p {
+  font-size: 1.2em;
+}
+
+p.content {
+  font-size: 1.6em;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+a:hover {
+  color: var(--main-color-dark);
+}
+
+.group-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1em;
+  justify-content: space-between;
+}
+
+.nice-btn {
+  color: var(--ele-bg);
+  background-color: var(--main-color);
+  font-size: 1.5em;
+  border-radius: 15px;
+  border: none;
+  margin: 0.5em;
+  padding: 0.25em 1.5em;
+  transition: 0.2s ease;
+}
+
+.nice-btn:hover {
+  transform: scale(1.1);
+}
+
+.nice-btn:active {
+  background-color: var(--main-color-dark);
+}
+
+.cards {
+  padding: 2em;
+}
+
+.card {
+  margin: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 90%;
+  background: var(--ele-bg);
+  box-shadow: 0px 0px 0px var(--ele-bg-dark);
+  transition: box-shadow 0.2 ease-out;
+  box-shadow: 0.8px 0.9px 3px var(--ele-bg-dark);
+}
+
+.card:hover {
+  box-shadow: 1px 8px 20px var(--ele-bg-dark);
+  transition: box-shadow 0.2 ease-in;
+}
+
+hr {
+  border: var(--ele-bg-dark) 1px solid;
+  border-radius: 1px;
+  margin: 10px 0;
+  opacity: 0.5;
+}
+
+.zikr-info {
+  padding: 1em 0;
+}
+
+.zikr-info > span {
+  font-size: 16px;
+  line-height: 24px;
+  display: block;
+}
+
+.info-subtitle {
+  font-weight: 500;
+}
+
+.tab-list {
+  list-style: none;
+  display: flex;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid var(--ele-bg-dark);
+  background-color: var(--ele-bg);
+}
+
+.tab button {
+  background-color: inherit;
+  float: right;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tab-btn.active {
+  background-color: var(--main-color);
+  color: var(--ele-bg);
+}
+
+.tab-btn:hover {
+  color: white;
+  background-color: var(--main-color-dark);
+}
+
+.text-left {
+  text-align: left;
+  direction: ltr;
+}
+
+footer {
+  text-align: center;
+  background-color: var(--ele-bg);
+  border-top: 1px solid var(--ele-bg-dark);
+  padding: 15px;
+}

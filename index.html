@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="./index.css" />
+    <script defer src="./index.js" type="module"></script>
+    <title>l</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>مذكر الأذكار</h1>
+    </header>
+    <main>
+      <div class="language-selector">
+        <div class="group-btn">
+          <button id="ar-btn" class="nice-btn">Arabic</button>
+          <button id="en-btn" class="nice-btn">English</button>
+        </div>
+      </div>
+      <nav class="tab">
+        <ul class="tab-list">
+          <li><button href="#morning" id="morning-btn" class="tab-btn active">أذكار الصباح</button></li>
+          <li><button href="#evening" id="evening-btn" class="tab-btn">أذكار المساء</button></li>
+        </ul>
+      </div>
+      <div class="content">
+        <div id="morning" class="cards"></div>
+        <div id="evening" class="cards"></div>
+      </div>
+    </main>
+    <footer>
+      <a
+        href="https://github.com/AhmedElTabarani/azkar-reminder-extension"
+        target="_blank"
+      >
+        <img src="./icons/GitHub-Mark-32px.png" />
+      </a>
+    </footer>
+  </body>
+</html>

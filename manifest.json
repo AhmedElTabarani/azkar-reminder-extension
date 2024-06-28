@@ -1,0 +1,15 @@
+{
+  "name": "مذكر الأذكار",
+  "description": "إضافة للمتصفح تتذكرك بالأذكار والأدعية بشكل مستمر وبها اذكار الصباح والمساء",
+  "version": "0.1",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "/index.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "permissions": ["storage", "notifications"]
+}
