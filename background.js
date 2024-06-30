@@ -1,40 +1,21 @@
+import { DuaaService } from './services/duaa.service.js';
+import { PushWenNotificationService } from './services/push-web-notification.service..js';
 import * as cache from './utils/cache.js';
 
 // TODO: Add the rest of 100 duaa from the book and authentic sunnah
 // SEE https://nuqayah.com/f/100-duaa.pdf
 
-const filePath =
-  '/duaa/100-duaa-from-the-book-and-authentic-sunnah.json';
-setInterval(() => {
-  displayRandomDuaa();
-}, 1000 * 60 * 5); // TODO: change timeout to be customizable
+setInterval(async () => {
+  const allDuaa = await DuaaService.loadAllDuaa();
 
-const getRandomDuaa = (data) => {
-  return data[Math.floor(Math.random() * data.length)];
-};
+  // get random duaa object
+  const randomDuaa = DuaaService.getRandomDuaa(allDuaa);
+  const { id, duaa, category: title } = randomDuaa;
 
-const displayRandomDuaa = async () => {
-  const data = await cache.get(filePath);
+  // duaa is an array of strings
+  // so we need to get a random string from it
+  const message = DuaaService.getRandomDuaa(duaa);
+  PushWenNotificationService.push(id, title, message);
+}, 1000 * 60); // TODO: change timeout to be customizable
 
-  if (data) {
-    const { duaa, category: title } = getRandomDuaa(data);
-    return pushWebNotificationRandomDuaa(title, duaa);
-  }
-
-  fetch(filePath)
-    .then((response) => response.json())
-    .then((data) => {
-      const { duaa, category: title } = getRandomDuaa(data);
-      pushWebNotificationRandomDuaa(title, duaa);
-      cache.set(filePath, data);
-    });
-};
-
-const pushWebNotificationRandomDuaa = async (title, duaa) => {
-  await chrome.notifications.create(null, {
-    type: 'basic',
-    iconUrl: '/icons/GitHub-Mark-32px.png', // TODO: change icon
-    title: title,
-    message: duaa.join('\n'),
-  });
-};
+cache.clear();
