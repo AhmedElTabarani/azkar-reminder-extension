@@ -14,14 +14,12 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
     const allDuaa = await DuaaService.loadAllDuaa();
 
     // get random duaa object
-    const { id, value: randomDuaa } =
-      DuaaService.getRandomDuaa(allDuaa);
-    const { duaa, category } = randomDuaa;
+    const { value: randomDuaa } = DuaaService.getRandomDuaa(allDuaa);
+    const { id, duaa, category } = randomDuaa;
 
     // duaa is an array of strings
     // so we need to get a random string from it
-    const { id: index, value: message } =
-      DuaaService.getRandomDuaa(duaa);
+    const { index, value: message } = DuaaService.getRandomDuaa(duaa);
 
     const contextMessage = DuaaService.getDuaaContextMessage(
       allDuaa,

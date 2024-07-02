@@ -7,13 +7,13 @@ export class DuaaService {
   static getRandomDuaa(data) {
     const index = Math.floor(Math.random() * data.length);
     return {
-      id: index,
+      index,
       value: data[index],
     };
   }
 
   static getDuaaContextMessage(data, id, index) {
-    const duaa = data[id];
+    const duaa = data[id - 1];
     if (duaa.source.quran != null) {
       const { surah, ayah } = duaa.source.quran[index];
       let message = `سورة: ${surah.name}، آية: `;
