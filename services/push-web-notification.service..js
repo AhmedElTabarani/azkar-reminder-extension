@@ -6,6 +6,7 @@ export class PushWenNotificationService {
       iconUrl: '../icons/GitHub-Mark-32px.png', // TODO: change icon
       title: title,
       message: message,
+      requireInteraction: true,
     });
   };
 }
