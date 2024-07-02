@@ -34,6 +34,12 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
       message,
       contextMessage,
     });
+
+    // delete notification
+    setTimeout(
+      () => PushWenNotificationService.delete(duaaId),
+      1000 * 30,
+    ); // TODO: change timeout to be customizable
   }
 });
 

@@ -14,4 +14,8 @@ export class PushWenNotificationService {
       requireInteraction: true,
     });
   };
+
+  static delete = async (id) => {
+    return await chrome.notifications.clear(id);
+  };
 }
