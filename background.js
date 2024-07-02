@@ -5,17 +5,23 @@ import * as cache from './utils/cache.js';
 // TODO: Add the rest of 100 duaa from the book and authentic sunnah
 // SEE https://nuqayah.com/f/100-duaa.pdf
 
-setInterval(async () => {
-  const allDuaa = await DuaaService.loadAllDuaa();
+chrome.alarms.create('notify', {
+  periodInMinutes: 1, // TODO: change timeout to be customizable
+});
 
-  // get random duaa object
-  const randomDuaa = DuaaService.getRandomDuaa(allDuaa);
-  const { id, duaa, category: title } = randomDuaa;
+chrome.alarms.onAlarm.addListener(async (alarm) => {
+  if (alarm.name === 'notify') {
+    const allDuaa = await DuaaService.loadAllDuaa();
 
-  // duaa is an array of strings
-  // so we need to get a random string from it
-  const message = DuaaService.getRandomDuaa(duaa);
-  PushWenNotificationService.push(id, title, message);
-}, 1000 * 60); // TODO: change timeout to be customizable
+    // get random duaa object
+    const randomDuaa = DuaaService.getRandomDuaa(allDuaa);
+    const { id, duaa, category: title } = randomDuaa;
+
+    // duaa is an array of strings
+    // so we need to get a random string from it
+    const message = DuaaService.getRandomDuaa(duaa);
+    PushWenNotificationService.push(id, title, message);
+  }
+});
 
 cache.clear();
