@@ -5,7 +5,29 @@ export class DuaaService {
     '../duaa/100-duaa-from-the-book-and-authentic-sunnah.json';
 
   static getRandomDuaa(data) {
-    return data[Math.floor(Math.random() * data.length)];
+    const index = Math.floor(Math.random() * data.length);
+    return {
+      id: index,
+      value: data[index],
+    };
+  }
+
+  static getDuaaContextMessage(data, id, index) {
+    const duaa = data[id];
+    if (duaa.source.quran != null) {
+      const { surah, ayah } = duaa.source.quran[index];
+      let message = `سورة: ${surah.name}، آية: `;
+
+      if (ayah.from === ayah.to) message += `${ayah.from}`;
+      else message += `من ${ayah.from} إلى ${ayah.to}`;
+
+      return message;
+    }
+
+    if (duaa.source.hadith != null) {
+      const hadith = duaa.source.hadith[index][0];
+      return `المصدر: ${hadith.book}، رقم الحديث أوالصفحة: ${hadith.numberOrPage}`;
+    }
   }
 
   static async loadAllDuaa() {
