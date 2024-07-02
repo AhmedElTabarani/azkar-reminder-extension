@@ -6,7 +6,7 @@ import * as cache from './utils/cache.js';
 // SEE https://nuqayah.com/f/100-duaa.pdf
 
 chrome.alarms.create('notify', {
-  periodInMinutes: 1, // TODO: change timeout to be customizable
+  periodInMinutes: 5, // TODO: change timeout to be customizable
 });
 
 chrome.alarms.onAlarm.addListener(async (alarm) => {
@@ -38,8 +38,8 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
     // delete notification
     setTimeout(
       () => PushWenNotificationService.delete(duaaId),
-      1000 * 30,
-    ); // TODO: change timeout to be customizable
+      1000 * 15,
+    );
   }
 });
 
