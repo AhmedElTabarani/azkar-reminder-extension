@@ -2,9 +2,6 @@ import { DuaaService } from './services/duaa.service.js';
 import { PushWenNotificationService } from './services/push-web-notification.service..js';
 import * as cache from './utils/cache.js';
 
-// TODO: Add the rest of 100 duaa from the book and authentic sunnah
-// SEE https://nuqayah.com/f/100-duaa.pdf
-
 chrome.alarms.create('notify', {
   periodInMinutes: 5, // TODO: change timeout to be customizable
 });

@@ -7,7 +7,7 @@ export class PushWenNotificationService {
   }) => {
     return await chrome.notifications.create(id, {
       type: 'basic',
-      iconUrl: '../icons/GitHub-Mark-32px.png', // TODO: change icon
+      iconUrl: '../icons/icon128.png',
       title: title,
       message: message,
       contextMessage: contextMessage,
