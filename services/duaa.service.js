@@ -26,7 +26,7 @@ export class DuaaService {
 
     if (duaa.source.hadith != null) {
       const hadith = duaa.source.hadith[index][0];
-      return `المصدر: ${hadith.book}، رقم الحديث أوالصفحة: ${hadith.numberOrPage}`;
+      return `المصدر: ${hadith.book}، رقم الحديث أو الصفحة: ${hadith.numberOrPage}`;
     }
   }
 
