@@ -17,5 +17,5 @@
     "type": "module"
   },
 
-  "permissions": ["storage", "alarms", "notifications", "activeTab"]
+  "permissions": ["storage", "alarms", "notifications"]
 }
