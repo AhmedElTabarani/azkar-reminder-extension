@@ -9,7 +9,7 @@
     />
     <link rel="stylesheet" href="./index.css" />
     <script defer src="./index.js" type="module"></script>
-    <title>l</title>
+    <title>مذكر الأذكار</title>
   </head>
 
   <body>
@@ -23,6 +23,49 @@
           <button id="en-btn" class="nice-btn">English</button>
         </div>
       </div>
+      
+      <!-- Settings Section -->
+      <div class="settings-section">
+        <button id="settings-toggle" class="settings-btn">⚙️ الإعدادات</button>
+        <div id="settings-panel" class="settings-panel hidden">
+          <div class="setting-group">
+            <label for="notifications-toggle">
+              <input type="checkbox" id="notifications-toggle" checked>
+              تفعيل الإشعارات التذكيرية
+            </label>
+          </div>
+          
+          <div class="setting-group">
+            <label for="timer-interval">مؤقت الإشعارات (بالدقائق):</label>
+            <select id="timer-interval">
+              <option value="1">كل دقيقة</option>
+              <option value="5" selected>كل 5 دقائق</option>
+              <option value="10">كل 10 دقائق</option>
+              <option value="15">كل 15 دقيقة</option>
+              <option value="30">كل 30 دقيقة</option>
+              <option value="60">كل ساعة</option>
+              <option value="120">كل ساعتين</option>
+              <option value="180">كل 3 ساعات</option>
+            </select>
+          </div>
+          
+          <div class="setting-group">
+            <label for="content-selector">نوع المحتوى:</label>
+            <select id="content-selector">
+              <option value="duaa-100">100 دعاء من الكتاب والسنة</option>
+              <option value="azkar-morning-evening">أذكار الصباح والمساء</option>
+              <option value="random">عشوائي في كل مرة</option>
+            </select>
+          </div>
+          
+          <button id="save-settings" class="save-btn">حفظ الإعدادات</button>
+          
+          <div class="test-notification">
+            <button id="test-notification-btn" class="test-btn">اختبار الإشعار</button>
+          </div>
+        </div>
+      </div>
+
       <nav class="tab">
         <ul class="tab-list">
           <li><button href="#morning" id="morning-btn" class="tab-btn active">أذكار الصباح</button></li>

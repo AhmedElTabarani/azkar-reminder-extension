@@ -1,0 +1,38 @@
+{
+  "name": "azkar-reminder-extension",
+  "version": "1.0.0",
+  "description": "إضافة للمتصفح تتذكرك بالأذكار والأدعية بشكل مستمر وبها اذكار الصباح والمساء ومترجمة للغة الإنجليزية كل مدة يتم سيتم عرض لك دعاء عشوائي على هيئة اشعار يأتيك من خلال المتصفح",
+  "main": "index.js",
+  "scripts": {
+    "build:ts": "tsc",
+    "build:copy-static": "copyfiles -u 0 index.css dist && copyfiles -u 0 icons/** dist && copyfiles -u 0 content/** dist",
+    "build:copy-manifest": "copyfiles -u 0 manifest.json dist",
+    "build:copy-html": "copyfiles -u 0 index.html dist",
+    "build": "npm run clean && npm run build:ts && run-p build:copy-*",
+    "build:watch": "tsc --watch",
+    "clean": "rimraf dist",
+    "dev": "npm run build && npm run build:watch",
+    "package": "npm run build && cd dist && powershell Compress-Archive -Path * -DestinationPath ../azkar-reminder-extension.zip -Force",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AhmedElTabarani/azkar-reminder-extension.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/AhmedElTabarani/azkar-reminder-extension/issues"
+  },
+  "homepage": "https://github.com/AhmedElTabarani/azkar-reminder-extension#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.0.326",
+    "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.3"
+  }
+}
