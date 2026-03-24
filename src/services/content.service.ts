@@ -19,7 +19,7 @@ export class ContentService {
    * @returns Promise resolving to random content with normalized structure
    */
   static async getRandomContent(
-    contentType: ContentType = ContentType.DUAA_100,
+    contentType: ContentType = ContentType.RANDOM,
   ): Promise<RandomContentResult> {
     return await this.contentManager.getRandomContent(contentType);
   }
@@ -41,14 +41,14 @@ export class ContentService {
    * @returns Promise resolving to unified response structure
    */
   static async getUnifiedRandomContent(
-    contentType: ContentType = ContentType.DUAA_100,
+    contentType: ContentType = ContentType.RANDOM,
   ): Promise<UnifiedContentResponse> {
     const result = await this.contentManager.getRandomContent(
       contentType,
     );
 
     return {
-      id: `${contentType}-${result.itemIndex}-${result.contentIndex}`,
+      id: `${contentType}-${result.itemIndex}`,
       title: result.item.category,
       message: result.content,
       contextMessage: result.contextMessage,

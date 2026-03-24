@@ -27,7 +27,6 @@ export abstract class ContentStrategy {
    */
   abstract getContextMessage(
     item: BaseContentItem,
-    contentIndex?: number,
   ): string | null;
 
   /**

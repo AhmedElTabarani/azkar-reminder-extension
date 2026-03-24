@@ -7,36 +7,56 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./index.css" />
     <script defer src="./index.js" type="module"></script>
     <title>مذكر الأذكار</title>
   </head>
 
   <body>
+    <div class="bg-pattern" aria-hidden="true"></div>
+
     <header>
-      <h1>مذكر الأذكار</h1>
+      <div class="header-decoration" aria-hidden="true">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
+      <h1>مذكّر الأذكار</h1>
+      <p class="header-subtitle">تذكير بالأذكار والأدعية من الكتاب والسنة</p>
     </header>
+
     <main>
-      <div class="language-selector">
-        <div class="group-btn">
-          <button id="ar-btn" class="nice-btn">Arabic</button>
-          <button id="en-btn" class="nice-btn">English</button>
+      <div class="top-controls">
+        <div class="language-selector">
+          <button id="ar-btn" class="lang-btn active">العربية</button>
+          <button id="en-btn" class="lang-btn">English</button>
         </div>
+        <button id="settings-toggle" class="settings-icon-btn" aria-label="الإعدادات" title="الإعدادات">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
       </div>
-      
-      <!-- Settings Section -->
-      <div class="settings-section">
-        <button id="settings-toggle" class="settings-btn">⚙️ الإعدادات</button>
-        <div id="settings-panel" class="settings-panel hidden">
+
+      <div id="settings-panel" class="settings-panel hidden">
+        <div class="settings-panel-inner">
+          <div class="settings-header">
+            <h2>الإعدادات</h2>
+            <button id="settings-close" class="settings-close-btn" aria-label="إغلاق">✕</button>
+          </div>
+
           <div class="setting-group">
-            <label for="notifications-toggle">
-              <input type="checkbox" id="notifications-toggle" checked>
-              تفعيل الإشعارات التذكيرية
+            <label for="notifications-toggle" class="toggle-label">
+              <span class="toggle-text">تفعيل الإشعارات التذكيرية</span>
+              <div class="toggle-switch">
+                <input type="checkbox" id="notifications-toggle" checked />
+                <span class="toggle-slider"></span>
+              </div>
             </label>
           </div>
-          
+
           <div class="setting-group">
-            <label for="timer-interval">مؤقت الإشعارات (بالدقائق):</label>
+            <label for="timer-interval">مؤقت الإشعارات</label>
             <select id="timer-interval">
               <option value="1">كل دقيقة</option>
               <option value="5" selected>كل 5 دقائق</option>
@@ -48,41 +68,48 @@
               <option value="180">كل 3 ساعات</option>
             </select>
           </div>
-          
+
           <div class="setting-group">
-            <label for="content-selector">نوع المحتوى:</label>
+            <label for="content-selector">نوع المحتوى</label>
             <select id="content-selector">
               <option value="duaa-100">100 دعاء من الكتاب والسنة</option>
+              <option value="duaa-magmu-azkar">أدعية من كتاب مجموع الأذكار</option>
               <option value="azkar-morning-evening">أذكار الصباح والمساء</option>
               <option value="random">عشوائي في كل مرة</option>
             </select>
           </div>
-          
-          <button id="save-settings" class="save-btn">حفظ الإعدادات</button>
-          
-          <div class="test-notification">
+
+          <div class="settings-actions">
+            <button id="save-settings" class="save-btn">حفظ الإعدادات</button>
             <button id="test-notification-btn" class="test-btn">اختبار الإشعار</button>
           </div>
         </div>
       </div>
 
-      <nav class="tab">
-        <ul class="tab-list">
-          <li><button href="#morning" id="morning-btn" class="tab-btn active">أذكار الصباح</button></li>
-          <li><button href="#evening" id="evening-btn" class="tab-btn">أذكار المساء</button></li>
-        </ul>
-      </div>
-      <div class="content">
+      <nav class="tab-nav">
+        <button id="morning-btn" class="tab-btn active">
+          <span class="tab-icon">☀️</span>
+          أذكار الصباح
+        </button>
+        <button id="evening-btn" class="tab-btn">
+          <span class="tab-icon">🌙</span>
+          أذكار المساء
+        </button>
+      </nav>
+
+      <div class="content-area">
         <div id="morning" class="cards"></div>
-        <div id="evening" class="cards"></div>
+        <div id="evening" class="cards" style="display:none"></div>
       </div>
     </main>
+
     <footer>
       <a
         href="https://github.com/AhmedElTabarani/azkar-reminder-extension"
         target="_blank"
+        title="GitHub"
       >
-        <img src="./icons/GitHub-Mark-32px.png" />
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
       </a>
     </footer>
   </body>

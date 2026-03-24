@@ -55,6 +55,9 @@ const saveSettingsBtn = document.getElementById(
 const testNotificationBtn = document.getElementById(
   'test-notification-btn',
 ) as HTMLButtonElement;
+  const settingsCloseBtn = document.getElementById(
+  'settings-close',
+) as HTMLButtonElement;
 
 let currentLanguage: 'ar' | 'en' = 'ar';
 
@@ -164,21 +167,29 @@ eveningBtn.addEventListener('click', () => {
 
 arBtn.addEventListener('click', () => {
   currentLanguage = 'ar';
-  morningBtn.innerText = 'أذكار الصباح';
-  eveningBtn.innerText = 'أذكار المساء';
+  arBtn.classList.add('active');
+  enBtn.classList.remove('active');
+  morningBtn.innerHTML = '<span class="tab-icon">☀️</span> أذكار الصباح';
+  eveningBtn.innerHTML = '<span class="tab-icon">🌙</span> أذكار المساء';
   loadAzkar(currentLanguage);
 });
 
 enBtn.addEventListener('click', () => {
   currentLanguage = 'en';
-  morningBtn.innerText = 'Morning Azkar';
-  eveningBtn.innerText = 'Evening Azkar';
+  enBtn.classList.add('active');
+  arBtn.classList.remove('active');
+  morningBtn.innerHTML = '<span class="tab-icon">☀️</span> Morning Azkar';
+  eveningBtn.innerHTML = '<span class="tab-icon">🌙</span> Evening Azkar';
   loadAzkar(currentLanguage);
 });
 
 // Settings functionality
 settingsToggle.addEventListener('click', () => {
-  settingsPanel.classList.toggle('hidden');
+  settingsPanel.classList.remove('hidden');
+});
+
+settingsCloseBtn.addEventListener('click', () => {
+  settingsPanel.classList.add('hidden');
 });
 
 // Load saved settings
@@ -192,7 +203,7 @@ const loadSettings = async (): Promise<void> => {
     settings.notificationsEnabled !== false;
   timerInterval.value = (settings.timerInterval || 5).toString();
   contentSelector.value =
-    settings.contentType || ContentType.DUAA_100;
+    settings.contentType || ContentType.RANDOM;
 };
 
 // Save settings

@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "build:ts": "tsc",
-    "build:copy-static": "copyfiles -u 0 index.css dist && copyfiles -u 0 icons/** dist && copyfiles -u 0 content/** dist",
+    "build:copy-static": "copyfiles -u 0 index.css dist && copyfiles -u 0 \"icons/**\" dist && copyfiles -u 0 \"content/**\" dist",
     "build:copy-manifest": "copyfiles -u 0 manifest.json dist",
     "build:copy-html": "copyfiles -u 0 index.html dist",
-    "build": "npm run clean && npm run build:ts && run-p build:copy-*",
+    "build": "npm run clean && npm run build:ts && run-p \"build:copy-*\"",
     "build:watch": "tsc --watch",
     "clean": "rimraf dist",
     "dev": "npm run build && npm run build:watch",
-    "package": "npm run build && cd dist && powershell Compress-Archive -Path * -DestinationPath ../azkar-reminder-extension.zip -Force",
+    "package": "npm run build && cd dist && powershell Compress-Archive -Path '*' -DestinationPath ../azkar-reminder-extension.zip -Force",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

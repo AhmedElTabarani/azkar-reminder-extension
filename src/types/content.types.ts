@@ -5,6 +5,7 @@
 export enum ContentType {
   RANDOM = 'random',
   DUAA_100 = 'duaa-100',
+  DUAA_MAGMU_AZKAR = 'duaa-magmu-azkar',
   AZKAR_MORNING_EVENING = 'azkar-morning-evening',
 }
 
@@ -18,7 +19,7 @@ export enum SourceType {
 export interface BaseContentItem {
   id: number;
   category: string;
-  content: string[];
+  content: string;
   type: ContentType;
   source: SourceInfo;
   additionalInfo?: Record<string, any> | null;
@@ -33,6 +34,7 @@ export interface SourceInfo {
 
 export interface QuranSource {
   surah: {
+    number?: number;
     name: string;
   };
   ayah: {
@@ -42,22 +44,76 @@ export interface QuranSource {
 }
 
 export interface HadithSource {
+  hadithId?: string;
+  hadithText?: string;
   rawi: string;
   mohdith: string;
   book: string;
   numberOrPage: string;
   grade: string;
-  takhrij?: string;
+  takhrij?: string | null;
 }
 
-export interface DuaaItem {
+export interface VocabularyItem {
+  text: string;
+  meaning: string;
+}
+
+export interface Duaa100RawItem {
   id: number;
   category: string;
-  duaa: string[];
+  duaa: Duaa100RawDuaaEntry[];
+}
+
+export interface Duaa100RawDuaaEntry {
+  text: string;
   source: {
-    quran: QuranSource[] | null;
-    hadith: HadithSource[][] | null;
+    type: 'quran' | 'hadith';
+    references: Duaa100RawQuranRef[] | Duaa100RawHadithRef[];
   };
+  vocabulary: VocabularyItem[] | null;
+}
+
+export interface Duaa100RawQuranRef {
+  surah: { number: number; name: string };
+  ayah: { from: number; to: number };
+}
+
+export interface Duaa100RawHadithRef {
+  rawi: string;
+  mohdith: string;
+  book: string;
+  numberOrPage: string;
+  grade: string;
+  takhrij?: string | null;
+}
+
+export interface MagmuAzkarRawItem {
+  id: number;
+  type: 'quran' | 'quran-derived' | 'hadith';
+  text: string;
+  footnote: string;
+  quranSource?: QuranSource | null;
+  hadithSources?: MagmuAzkarRawHadithSource[] | null;
+  narrations?: MagmuAzkarRawNarration[] | null;
+}
+
+export interface MagmuAzkarRawHadithSource {
+  hadithId: string;
+  hadithText: string;
+  rawi: string;
+  mohdith: string;
+  book: string;
+  numberOrPage: string;
+  grade: string;
+  takhrij?: string | null;
+}
+
+export interface MagmuAzkarRawNarration {
+  id: number;
+  text: string;
+  footnote: string;
+  hadithSources?: MagmuAzkarRawHadithSource[];
 }
 
 export interface AzkarItem {
@@ -76,7 +132,6 @@ export interface AzkarItem {
 export interface RandomContentResult {
   item: BaseContentItem;
   content: string;
-  contentIndex: number;
   itemIndex: number;
   contextMessage: string | null;
 }

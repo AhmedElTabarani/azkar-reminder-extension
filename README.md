@@ -4,17 +4,21 @@
 كل مدة يتم سيتم عرض لك دعاء عشوائي على هيئة اشعار يأتيك من خلال المتصفح
 
 أذكار الصباح والمساء مأخوذة من مشروع [Morning-And-Evening-Adhkar-DB](https://github.com/Seen-Arabic/Morning-And-Evening-Adhkar-DB)  
-والأدعية مأخوذة من كتاب `100` دعاء من الكتاب والسنة الصحيحة للشيخ محمد صالح المنجد [100-duaa-from-the-book-and-authentic-sunnah](https://github.com/AhmedElTabarani/100-duaa-from-the-book-and-authentic-sunnah)
+والأدعية مأخوذة من: 
+
+- كتاب `100` دعاء من الكتاب والسنة الصحيحة للشيخ محمد صالح المنجد [100-duaa-from-the-book-and-authentic-sunnah](https://github.com/AhmedElTabarani/100-duaa-from-the-book-and-authentic-sunnah)  
+- كتاب مجموع الأذكار للشيخ الدكتور سعيد بن علي بن وهف القحطاني [duaa-of-magmu-azkar-book](https://github.com/AhmedElTabarani/duaa-of-magmu-azkar-book)  
+
 
 ## أذكار الصباح والمساء
 
 الإضافة تحتوي على أذكار الصباح والمساء
 
-![image](https://github.com/AhmedElTabarani/azkar-reminder-extension/assets/69223584/2ea93207-31e4-4469-a544-4ef5324ae491)
+![image](./images/main-ar.png)
 
 ويوجد ترجمة انجليزية للأذكار
 
-![image_2](https://github.com/AhmedElTabarani/azkar-reminder-extension/assets/69223584/fb543899-f64f-4c5b-bff9-0e4e6dc4a5db)
+![image](./images/main-en.png)
 
 ## التحكم في الإشعارات
 
@@ -30,7 +34,7 @@
   - كل 3 ساعات
 - **اختبار الإشعارات**: زر لاختبار الإشعار فوراً
 
-![image](https://github.com/user-attachments/assets/36a37c76-e5f1-4cb1-aba9-8fca8a55c623)
+![image](./images/settings.png)
 
 
 ## أنواع الأذكار المتاحة
@@ -39,6 +43,8 @@
 
 1. **100 دعاء من الكتاب والسنة**
 2. **أذكار الصباح والمساء**
+3. **أدعية من كتاب مجموع الأذكار**
+4. **دعاء عشوائي**
 
 ## رابط الإضافة على متجر جوجل كروم
 
