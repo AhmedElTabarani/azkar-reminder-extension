@@ -27,7 +27,7 @@ export class AzkarMorningAndEveningStrategy extends ContentStrategy {
     return data.map((item) => ({
       id: item.order,
       category: item.type === 0 ? 'أذكار الصباح والمساء' : 'أذكار',
-      content: [item.content], // Wrap single content in array for consistency with other strategies
+      content: item.content,
       type: ContentType.AZKAR_MORNING_EVENING,
       source: {
         text: item.source,

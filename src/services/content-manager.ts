@@ -1,4 +1,5 @@
 import { DuaaStrategy } from './content-strategies/duaa-strategy.js';
+import { MagmuAzkarStrategy } from './content-strategies/magmu-azkar-strategy.js';
 import { AzkarMorningAndEveningStrategy } from './content-strategies/azkar-morning-and-evening-strategy.js';
 import { ContentStrategy } from './content-strategies/content-strategy.interface.js';
 import {
@@ -28,6 +29,10 @@ export class ContentManager {
   private initializeStrategies(): void {
     this.strategies.set(ContentType.DUAA_100, new DuaaStrategy());
     this.strategies.set(
+      ContentType.DUAA_MAGMU_AZKAR,
+      new MagmuAzkarStrategy(),
+    );
+    this.strategies.set(
       ContentType.AZKAR_MORNING_EVENING,
       new AzkarMorningAndEveningStrategy(),
     );
@@ -39,6 +44,10 @@ export class ContentManager {
     this.contentPaths.set(
       ContentType.DUAA_100,
       '../content/100-duaa-from-the-book-and-authentic-sunnah.json',
+    );
+    this.contentPaths.set(
+      ContentType.DUAA_MAGMU_AZKAR,
+      '../content/duaa-of-magmu-azkar-book.json',
     );
     this.contentPaths.set(
       ContentType.AZKAR_MORNING_EVENING,
@@ -100,17 +109,11 @@ export class ContentManager {
 
     const { index, value: item } = strategy.getRandomContent(data);
 
-    // Get random content from the content array
-    const contentArray = item.content;
-    const { index: contentIndex, value: content } =
-      strategy.getRandomContent(contentArray);
-
     return {
       item,
-      content,
-      contentIndex,
+      content: item.content,
       itemIndex: index,
-      contextMessage: strategy.getContextMessage(item, contentIndex),
+      contextMessage: strategy.getContextMessage(item),
     };
   }
 }

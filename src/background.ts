@@ -57,7 +57,7 @@ const handleSettingsUpdate = async (
 const handleTestNotification = async (
   settings: Partial<ExtensionSettings>,
 ): Promise<{ success: boolean; error?: string }> => {
-  const contentType = settings.contentType || ContentType.DUAA_100;
+  const contentType = settings.contentType || ContentType.RANDOM;
 
   try {
     const testContent = await ContentService.getUnifiedRandomContent(
@@ -100,7 +100,7 @@ const handleAlarmNotification = async (): Promise<void> => {
       return;
     }
 
-    const contentType = settings.contentType || ContentType.DUAA_100;
+    const contentType = settings.contentType || ContentType.RANDOM;
 
     // Get unified random content using the new ContentService
     const randomContent =
